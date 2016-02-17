@@ -1,7 +1,6 @@
 #!/bin/bash
 echo -e "\n *** Starting Mongod WiredTiger ! ***\n"
-mongod --smallfiles \
-       --dbpath data-wiredtiger \
+mongod --dbpath data-wiredtiger \
        --logpath log/mongod_wiredTiger.log \
-       --fork \
-       --port 27017;
+       --port 27017 \
+       --fork;
