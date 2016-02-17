@@ -1,34 +1,33 @@
-db.tweets.aggregate( [
-    { $match: { "user.friends_count": { $gt: 0 },
-                "user.followers_count": { $gt: 0 } } },
-    { $project: { ratio: {$divide: ["$user.followers_count",
-                                    "$user.friends_count"]},
-                  screen_name : "$user.screen_name"} },
-    { $sort: { ratio: -1 } },
-    { $limit: 1 } ] ).forEach(function(x){printjson(x)});
+db.posts.aggregate( [
+    { $project : { "comments.author": 1 } },
+    { $unwind: "$comments" },
+    { $group : { _id : "$comments.author", count: {$sum : 1} } },
+    { $sort : { count : 1} }
+]).forEach(function(x){printjson(x)})
 
+db.zips.aggregate( [
+    { $match: { state: { $in: ["CA", "NY"] } } },
+    { $group: { _id: { state: "$state", city: "$city" },
+                pop: {$sum: "$pop"} } },
+    { $match: { pop: {$gt: 25000} } },
+    { $group: { _id: null,
+                pop: {$avg: "$pop"} } }
+] ).forEach(function(x){printjson(x)})
 
-db.tweets.aggregate( [
-    { $match: { "user.time_zone": "Brasilia", "user.statuses_count": {$gt: 100} } },
-    { $sort : {"user.followers_count": -1} },
-    { $project: { screen_name : "$user.screen_name", 
-                  tweets: "$user.statuses_count", 
-                  nb_followers: "$user.followers_count" } }, 
-    { $limit : 1}
-    ] ).forEach(function(x){printjson(x)});
-
-db.tweets.aggregate( [
-    { "$group" : { "_id" : "$source",
-                   "count" : { "$sum" : 1 } } },
-    { "$sort" : { "count" : -1 } },
-    { "$limit" : 1}
-] ).forEach(function(x){printjson(x)});
-
-db.tweets.aggregate( [
-   { "$group" : { "_id" : "$user.screen_name",
-                  "tweet_texts" : { "$push" : "$text" },
-                  "count" : { "$sum" : 1 } } },
-   { "$sort" : { "count" : -1 } },
-   { "$limit" : 3 }
-] ).forEach(function(x){printjson(x)});
+db.zips.aggregate( [
+   { $project : {
+       first_char: { $substr: [ "$city", 0, 1] },
+       pop: 1,
+       city: "$city",
+       zip: "$_id",
+       state: 1
+   } },
+   { $match : {
+       first_char: { $in: [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] }
+   } },
+   {
+      "$group" : { _id: null,
+                   population: { $sum : "$pop"} }
+   }
+] ).forEach(function(x){printjson(x)})
 
