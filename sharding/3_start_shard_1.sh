@@ -3,17 +3,23 @@ echo -e "\n *** Starting Shard 1 ! ***\n"
 mongod --replSet shard1 --shardsvr \
        --dbpath cluster/shard1/m0 \
        --logpath cluster/shard1/m0/mongod.log \
-       --fork --port 27117
+       --port 27117 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet shard1 --shardsvr \
        --dbpath cluster/shard1/m1 \
        --logpath cluster/shard1/m1/mongod.log \
-       --fork --port 27118
+       --port 27118 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet shard1 --shardsvr \
        --dbpath cluster/shard1/arb \
        --logpath cluster/shard1/arb/mongod.log \
-       --fork --port 27119
+       --port 27119 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 sleep 1
 

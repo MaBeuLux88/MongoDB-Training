@@ -1,5 +1,5 @@
 # MongoDB-Training
-Educational scripts to set up a StandAlone, a ReplicaSet or a Sharded environment.
+Educational scripts to set up a Standalone, a Replica Set or a Sharded environment.
 
 To start a MongoDB cluster, just start the scripts in the order one by one.
 Update them to match your architecture.

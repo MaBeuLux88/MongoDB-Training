@@ -3,17 +3,23 @@ echo -e "\n *** Starting Config Servers ! ***\n"
 mongod --replSet configSvr --configsvr \
        --dbpath cluster/config/c0 \
        --logpath cluster/config/c0/mongod.log \
-       --fork --port 27217
+       --port 27217 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet configSvr --configsvr \
        --dbpath cluster/config/c1 \
        --logpath cluster/config/c1/mongod.log \
-       --fork --port 27218
+       --port 27218 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet configSvr --configsvr \
        --dbpath cluster/config/c2 \
        --logpath cluster/config/c2/mongod.log \
-       --fork --port 27219
+       --port 27219 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 sleep 1
 

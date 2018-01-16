@@ -3,17 +3,23 @@ echo -e "\n *** Starting Replica Set ! ***\n"
 mongod --replSet replicaTest \
        --dbpath replicaTest/m0 \
        --logpath replicaTest/m0/mongod.log \
-       --fork --port 27017
+       --port 27017 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet replicaTest \
        --dbpath replicaTest/m1 \
        --logpath replicaTest/m1/mongod.log \
-       --fork --port 27018
+       --port 27018 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 mongod --replSet replicaTest \
        --dbpath replicaTest/arb \
        --logpath replicaTest/arb/mongod.log \
-       --fork --port 27019
+       --port 27019 \
+       --bind_ip 127.0.0.1 \
+       --fork
 
 sleep 1
 
