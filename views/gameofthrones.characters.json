@@ -1,0 +1,11 @@
+{"_id":{"$oid":"5ae6e6a28c7800e7289b43bb"},"firstName":"Daenerys","lastName":"Targaryen","nickName":"Khaleesi","house":"Targaryen","actor":"Emilia Clarke","gender":"female","status":"alive"}
+{"_id":{"$oid":"5ae706d9bdda94f2ac19314d"},"firstName":"Robert","lastName":"Baratheon","house":"Baratheon","status":"dead"}
+{"_id":{"$oid":"5ae7070fbdda94f2ac19314e"},"firstName":"Joffrey","lastName":"Baratheon","house":"Baratheon","actor":"Jack Gleeson","gender":"male","status":"dead"}
+{"_id":{"$oid":"5ae70751bdda94f2ac19314f"},"firstName":"Tyron","lastName":"Lannister","nickName":"The Imp","house":"Lannister","actor":"Peter Dinklage"}
+{"_id":{"$oid":"5ae70782bdda94f2ac193150"},"firstName":"Jaime","lastName":"Lannister","house":"Lannister","actor":"Nikolaj Coster","gender":"male","status":"alive"}
+{"_id":{"$oid":"5ae707b3bdda94f2ac193151"},"firstName":"Cersei","lastName":"Lannister","house":"Lannister","actor":"Lena Headey","status":"alive"}
+{"_id":{"$oid":"5ae707ddbdda94f2ac193152"},"firstName":"Tywin","lastName":"Lannister","house":"Lannister","actor":"Charles Dance","gender":"male"}
+{"_id":{"$oid":"5ae7081fbdda94f2ac193153"},"firstName":"Jon","lastName":"Snow","house":"Stark","actor":"Kit Harington","gender":"male","status":"alive"}
+{"_id":{"$oid":"5ae70957bdda94f2ac193154"},"firstName":"Sansa","lastName":"Stark","house":"Stark","actor":"Sophie Turner","status":"alive"}
+{"_id":{"$oid":"5ae70982bdda94f2ac193155"},"firstName":"Arya","lastName":"Stark","house":"Stark","actor":"Maisie Williams","gender":"female"}
+{"_id":{"$oid":"5ae709a5bdda94f2ac193156"},"firstName":"Eddard","lastName":"Stark","nickName":"Ned","house":"Start","actor":"Sean Bean"}
